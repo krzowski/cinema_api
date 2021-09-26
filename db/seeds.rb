@@ -10,3 +10,8 @@ user = User.create(
   email: 'user@example.com',
   password: 'password'
 )
+
+admin = Admin.create(
+  email: 'admin@example.com',
+  password: 'password'
+)
