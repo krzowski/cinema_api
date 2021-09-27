@@ -2,8 +2,6 @@ Rails.application.routes.draw do
   mount Rswag::Ui::Engine => '/api-docs'
   mount Rswag::Api::Engine => '/api-docs'
 
-  scope :api do
-    mount_devise_token_auth_for 'User', at: 'auth'
-    mount_devise_token_auth_for 'Admin', at: 'admin/auth'
-  end
+  mount_devise_token_auth_for 'User', at: 'api/auth', skip: [:registrations, :passwords]
+  mount_devise_token_auth_for 'Admin', at: 'admin_api/auth', skip: [:registrations, :passwords]
 end

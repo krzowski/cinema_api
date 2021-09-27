@@ -1,0 +1,65 @@
+---
+swagger: 2.0.0
+info:
+  title: CINEMA API
+  version: v1
+paths:
+  "/api/auth/sign_in":
+    post:
+      summary: create user session
+      tags:
+      - Auth#Sessions
+      consumes:
+      - application/json
+      parameters:
+      - name: user
+        in: body
+        schema:
+          type: object
+          properties:
+            email:
+              type: string
+            password:
+              type: string
+          required:
+          - email
+          - password
+      responses:
+        '200':
+          description: authorized
+        '401':
+          description: unauthorized
+  "/api/auth/sign_out":
+    delete:
+      summary: delete user session
+      tags:
+      - Auth#Sessions
+      consumes:
+      - application/json
+      security:
+      - client: []
+        access_token: []
+        uid: []
+      responses:
+        '200':
+          description: successful
+        '404':
+          description: failed
+servers:
+- url: http://{defaultHost}
+  variables:
+    defaultHost:
+      default: localhost:3000
+securityDefinitions:
+  access_token:
+    type: apiKey
+    name: access-token
+    in: header
+  client:
+    type: apiKey
+    name: client
+    in: header
+  uid:
+    type: apiKey
+    name: uid
+    in: header
