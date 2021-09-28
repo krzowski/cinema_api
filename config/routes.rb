@@ -15,6 +15,7 @@ Rails.application.routes.draw do
     namespace :v1 do
       resources :movies, only: :show
       resources :movie_showings, only: :index
+      resources :movie_ratings, only: :create
     end
   end
 end

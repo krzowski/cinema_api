@@ -11,4 +11,5 @@
 #
 class Movie < ApplicationRecord
   has_many :movie_showings
+  has_many :movie_ratings
 end

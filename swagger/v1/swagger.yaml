@@ -45,6 +45,35 @@ paths:
           description: successful
         '404':
           description: failed
+  "/api/v1/movie_ratings":
+    post:
+      summary: create movie_rating
+      tags:
+      - MovieRatings#create
+      consumes:
+      - application/json
+      security:
+      - client: []
+        access_token: []
+        uid: []
+      parameters:
+      - name: movie_rating
+        in: body
+        schema:
+          type: object
+          properties:
+            movie_id:
+              type: string
+            rating:
+              type: string
+          required:
+          - movie_id
+          - rating
+      responses:
+        '201':
+          description: successful
+        '422':
+          description: unprocessable
   "/api/v1/movie_showings":
     get:
       summary: list movie_showings

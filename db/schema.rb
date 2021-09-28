@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_09_28_192559) do
+ActiveRecord::Schema.define(version: 2021_09_28_205837) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -42,6 +42,17 @@ ActiveRecord::Schema.define(version: 2021_09_28_192559) do
     t.decimal "price", precision: 11, scale: 2, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "movie_ratings", force: :cascade do |t|
+    t.bigint "movie_id", null: false
+    t.bigint "user_id", null: false
+    t.integer "rating", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["movie_id"], name: "index_movie_ratings_on_movie_id"
+    t.index ["user_id"], name: "index_movie_ratings_on_user_id"
+    t.check_constraint "rating = ANY (ARRAY[1, 2, 3, 4, 5])"
   end
 
   create_table "movie_showings", force: :cascade do |t|
@@ -85,6 +96,8 @@ ActiveRecord::Schema.define(version: 2021_09_28_192559) do
     t.index ["uid", "provider"], name: "index_users_on_uid_and_provider", unique: true
   end
 
+  add_foreign_key "movie_ratings", "movies"
+  add_foreign_key "movie_ratings", "users"
   add_foreign_key "movie_showings", "movie_pricing_categories"
   add_foreign_key "movie_showings", "movies"
 end
