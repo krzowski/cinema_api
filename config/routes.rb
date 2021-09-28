@@ -4,4 +4,8 @@ Rails.application.routes.draw do
 
   mount_devise_token_auth_for 'User', at: 'api/auth', skip: [:registrations, :passwords]
   mount_devise_token_auth_for 'Admin', at: 'admin_api/auth', skip: [:registrations, :passwords]
+
+  namespace :admin_api do
+    resources :movies, only: :create
+  end
 end
