@@ -9,4 +9,5 @@
 #  updated_at :datetime         not null
 #
 class MoviePricingCategory < ApplicationRecord
+  has_many :movie_showings
 end

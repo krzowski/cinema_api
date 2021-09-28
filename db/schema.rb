@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_09_28_183433) do
+ActiveRecord::Schema.define(version: 2021_09_28_192559) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -44,6 +44,16 @@ ActiveRecord::Schema.define(version: 2021_09_28_183433) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "movie_showings", force: :cascade do |t|
+    t.bigint "movie_id", null: false
+    t.bigint "movie_pricing_category_id", null: false
+    t.time "show_time", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["movie_id"], name: "index_movie_showings_on_movie_id"
+    t.index ["movie_pricing_category_id"], name: "index_movie_showings_on_movie_pricing_category_id"
+  end
+
   create_table "movies", force: :cascade do |t|
     t.string "imdb_id", null: false
     t.jsonb "omdb_data", default: {}, null: false
@@ -75,4 +85,6 @@ ActiveRecord::Schema.define(version: 2021_09_28_183433) do
     t.index ["uid", "provider"], name: "index_users_on_uid_and_provider", unique: true
   end
 
+  add_foreign_key "movie_showings", "movie_pricing_categories"
+  add_foreign_key "movie_showings", "movies"
 end

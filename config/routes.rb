@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   namespace :admin_api do
     resources :movies, only: :create
     resources :movie_pricing_categories, only: [:create, :update]
+    resources :movie_showings, only: [:create, :update]
   end
 
   namespace :api do

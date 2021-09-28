@@ -10,4 +10,5 @@
 #  imdb_id              :string           not null
 #
 class Movie < ApplicationRecord
+  has_many :movie_showings
 end
