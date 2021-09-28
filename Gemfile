@@ -17,6 +17,7 @@ gem 'dry-monads'
 gem 'dry-matcher'
 gem 'dry-schema'
 gem 'httparty'
+gem 'jsonapi-serializer'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
