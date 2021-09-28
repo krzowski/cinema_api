@@ -13,7 +13,7 @@ RSpec.describe 'admin_api#movies', type: :request do
       expect(response.code).to eq("201")
     end
 
-    it "returns 401 with invalid params" do
+    it "returns 422 with invalid params" do
       params = {}
       post "/admin_api/movies", params: params, headers: @headers
       expect(response.code).to eq("422")

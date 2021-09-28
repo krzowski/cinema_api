@@ -13,6 +13,10 @@ class ApplicationController < ActionController::API
         render json: { data: result }, status: :created
       end
 
+      m.success(:updated) do |_, result|
+        render json: { data: result }, status: :ok
+      end
+
       m.success do
         head :ok
       end
