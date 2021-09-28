@@ -3,6 +3,8 @@ require 'dry/matcher/result_matcher'
 class ApplicationController < ActionController::API
   include DeviseTokenAuth::Concerns::SetUserByToken
 
+  rescue_from ActiveRecord::RecordNotFound, with: :not_found
+
   private
 
   def call_action
@@ -23,5 +25,9 @@ class ApplicationController < ActionController::API
         head :internal_server_error
       end
     end
+  end
+
+  def not_found
+    head :not_found
   end
 end
