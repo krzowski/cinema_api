@@ -8,6 +8,7 @@ module Movies
       def call(params)
         validator = yield validate(params)
         movie = yield persist(validator.to_h)
+        yield enqueue_omdb_data_fetch(movie)
 
         Success([:created, movie])
       end
@@ -22,6 +23,11 @@ module Movies
       def persist(attributes)
         movie = Movie.create!(attributes)
         Success(movie)
+      end
+
+      def enqueue_omdb_data_fetch(movie)
+        Movies::UpdateOmdbDataJob.perform_later(movie.id)
+        Success()
       end
     end
   end
