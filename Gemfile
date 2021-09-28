@@ -15,6 +15,8 @@ gem 'devise_token_auth'
 gem 'dry-validation'
 gem 'dry-monads'
 gem 'dry-matcher'
+gem 'dry-schema'
+gem 'httparty'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
@@ -29,4 +31,9 @@ group :development do
   gem 'spring'
   gem 'annotate'
   gem 'bullet'
+end
+
+group :test do
+  gem "webmock"
+  gem 'vcr'
 end
