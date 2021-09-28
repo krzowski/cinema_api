@@ -12,6 +12,9 @@ gem 'rack-cors'
 gem 'rswag'
 gem 'devise'
 gem 'devise_token_auth'
+gem 'dry-validation'
+gem 'dry-monads'
+gem 'dry-matcher'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
