@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe Movies::OmdbDataUpdater, type: :serializer do
+RSpec.describe MovieSerializer, type: :serializer do
   it "serializes :id, :imdb_id, :omdb_data, :omdb_data_updated_at attributes" do
     serializable_attrs = [:id, :imdb_id, :omdb_data, :omdb_data_updated_at]
     movie = create :fetched_movie

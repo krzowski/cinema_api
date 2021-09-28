@@ -6,7 +6,7 @@ RSpec.describe 'api/v1/movies', type: :request do
     parameter name: 'id', in: :path, type: :string, description: 'id'
 
     get('show movie') do
-      tags "Movies#get"
+      tags "Movies#show"
       consumes "application/json"
       security [ client: [], access_token: [], uid: [] ]
 
