@@ -45,6 +45,20 @@ paths:
           description: successful
         '404':
           description: failed
+  "/api/v1/movie_showings":
+    get:
+      summary: list movie_showings
+      tags:
+      - MovieShowings#index
+      consumes:
+      - application/json
+      security:
+      - client: []
+        access_token: []
+        uid: []
+      responses:
+        '200':
+          description: successful
   "/api/v1/movies/{id}":
     parameters:
     - name: id
@@ -55,7 +69,7 @@ paths:
     get:
       summary: show movie
       tags:
-      - Movies#get
+      - Movies#show
       consumes:
       - application/json
       security:
