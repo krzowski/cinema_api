@@ -15,8 +15,7 @@ module MoviePricingCategories
       private
 
       def validate(params)
-        update_validator = Validators::UpdateCategory.new.(params)
-        update_validator.to_monad
+        Validators::CategoryParams.new.(params).to_monad
       end
 
       def persist(attributes)

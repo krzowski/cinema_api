@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe Movies::Validators::NewMovie do
+RSpec.describe Movies::Validators::NewMovieParams do
   subject(:validator) { described_class.new }
 
   it "validates presence of :imdb_id" do

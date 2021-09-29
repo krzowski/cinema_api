@@ -15,8 +15,7 @@ module MovieRatings
       private
 
       def validate(params)
-        update_validator = Validators::UpdateRating.new.(params)
-        update_validator.to_monad
+        Validators::RatingParams.new.(params).to_monad
       end
 
       def persist(attributes)

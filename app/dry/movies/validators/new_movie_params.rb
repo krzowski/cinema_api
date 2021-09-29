@@ -1,6 +1,6 @@
 module Movies
   module Validators
-    class NewMovie < Dry::Validation::Contract
+    class NewMovieParams < Dry::Validation::Contract
       params do
         required(:imdb_id).filled(:string)
       end

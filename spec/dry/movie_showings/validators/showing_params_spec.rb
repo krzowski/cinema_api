@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe MovieShowings::Validators::UpdateShowing do
+RSpec.describe MovieShowings::Validators::ShowingParams do
   subject(:validator) { described_class.new }
 
   it "validates presence of :movie_pricing_category_id, :movie_id, :show_time" do

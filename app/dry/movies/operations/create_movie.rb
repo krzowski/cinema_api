@@ -16,8 +16,7 @@ module Movies
       private
 
       def validate(params)
-        new_movie_validator = Validators::NewMovie.new.(params)
-        new_movie_validator.to_monad
+        Validators::NewMovieParams.new.(params).to_monad
       end
 
       def persist(attributes)

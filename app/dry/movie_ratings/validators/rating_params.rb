@@ -1,6 +1,6 @@
 module MovieRatings
   module Validators
-    class UpdateRating < Dry::Validation::Contract
+    class RatingParams < Dry::Validation::Contract
       params do
         required(:user_id).filled(:integer)
         required(:movie_id).filled(:integer)

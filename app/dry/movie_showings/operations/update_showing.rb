@@ -16,8 +16,7 @@ module MovieShowings
       private
 
       def validate(params)
-        update_validator = Validators::UpdateShowing.new.(params)
-        update_validator.to_monad
+        Validators::ShowingParams.new.(params).to_monad
       end
 
       def find_showing(id)

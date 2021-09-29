@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe MovieRatings::Validators::UpdateRating do
+RSpec.describe MovieRatings::Validators::RatingParams do
   subject(:validator) { described_class.new }
 
   it "validates presence of :user_id, :movie_id, :rating" do

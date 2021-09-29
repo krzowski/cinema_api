@@ -1,6 +1,6 @@
 module MovieShowings
   module Validators
-    class UpdateShowing < Dry::Validation::Contract
+    class ShowingParams < Dry::Validation::Contract
       VALID_TIME_REGEX = /^([01]?[0-9]|2[0-3])\:[0-5][0-9]$/
 
       params do

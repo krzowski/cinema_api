@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe MoviePricingCategories::Validators::UpdateCategory do
+RSpec.describe MoviePricingCategories::Validators::CategoryParams do
   subject(:validator) { described_class.new }
 
   it "validates presence of :name, :price" do
