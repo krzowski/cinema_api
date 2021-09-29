@@ -1,0 +1,5 @@
+# remove '_example' part of file name to create a master key for encryption
+
+secret_key_base:
+devise_secret_key:
+omdb_api_key:
